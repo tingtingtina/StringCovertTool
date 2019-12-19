@@ -13,6 +13,22 @@ import os.path
 import ErrorConstant
 
 
+def covertTargetPath(dir_path, language):
+    # type: (String, String) -> String
+    """
+    据目标语言拼接成真正的目标目录
+    :param dir_path: 输入的目录路径 比如 C:/A
+    :param language: 目标语言 zh
+    :return: C:/A/values-zh 没有 values-en 则目标目录为 C:/A/values
+    """
+
+    # 如果没有 values-en 去 values找
+    targetFilePath = dir_path + "\\" + "values-" + language.lower() + "\\"
+    if language == "en" and not os.path.exists(targetFilePath):
+        targetFilePath = dir_path + "\\" + "values"
+    return targetFilePath
+
+
 class Xls2xmlUtils:
     keyTitle = "Android keyName"
     moduleTitle = "Android module"  # 内容为文件名
@@ -37,6 +53,9 @@ class Xls2xmlUtils:
         Log.info("--- xls2xml ---")
 
         # 输入 excel
+        if not xls_path or not os.path.exists(xls_path):
+            return ErrorConstant.Error(ErrorConstant.ERROR_EXCEL_NOT_EXIST)
+
         xlsPath = xls_path
         self.filePath = file_path
         self.targetLanguage = target_language
@@ -50,21 +69,6 @@ class Xls2xmlUtils:
         Log.info("name = %s， rows number = %s，clos number = %s" % (sheet.name, sheet.nrows, sheet.ncols))
         return self.convert(sheet)
 
-    def covertTargetPath(self, dir_path, language):
-        # type: (String, String) -> String
-        """
-        据目标语言拼接成真正的目标目录
-        :param dir_path: 输入的目录路径 比如 C:/A
-        :param language: 目标语言 zh
-        :return: C:/A/values-zh 没有 values-en 则目标目录为 C:/A/values
-        """
-
-        # 如果没有 values-en 去 values找
-        targetFilePath = dir_path + "\\" + "values-" + language.lower() + "\\"
-        if language == "en" and not os.path.exists(targetFilePath):
-            targetFilePath = dir_path + "\\" + "values"
-        return targetFilePath
-
     def convert(self, sheet):
         """
         真正转化部分
@@ -74,7 +78,7 @@ class Xls2xmlUtils:
         Log.info("--- convert ---")
         keyIndex = -1
         moduleIndex = -1
-        tempLanguageIndex = -1
+        tempLanguageIndex = None
         # 返回由该行中所有单元格的数据组成的列表
         try:
             firstRow = sheet.row_values(0)
@@ -102,7 +106,7 @@ class Xls2xmlUtils:
         xmlKeys = sheet.col_values(keyIndex)
         del xmlKeys[0]
 
-        if self.filePath is not None and self.targetLanguage is not None:  # 输入是文件，指定目标语言
+        if self.filePath and tempLanguageIndex:  # 输入是文件，指定目标语言
             Log.debug("keyIndex = %s moduleIndex = %s languageIndex = %s" % (keyIndex, moduleIndex, tempLanguageIndex))
             # 获取 value 集合，并删除 title 项
             xmlValues = sheet.col_values(tempLanguageIndex)
@@ -119,7 +123,7 @@ class Xls2xmlUtils:
         if moduleIndex == -1:
             return ErrorConstant.Error(ErrorConstant.ERROR_MODULE_NOT_FOUND)
 
-        if self.dirPath is None or len(self.dirPath) == 0:  # 目录为空，返回
+        if not self.dirPath:  # 目录为空，返回
             Log.error("Error：输入不合法")
             return ErrorConstant.Error(ErrorConstant.ERROR_INPUT)
 
@@ -144,7 +148,7 @@ class Xls2xmlUtils:
             # │   |	├── strings_moment.xml
             # │   ├── values-de
             # │   ├── values-ko
-            sub_dir_path = self.covertTargetPath(self.dirPath, targetLanguage)
+            sub_dir_path = covertTargetPath(self.dirPath, targetLanguage)
             if os.path.exists(sub_dir_path):
                 XMLParse.update_mutixml_value(sub_dir_path, xmlKeys, xmlValues, xmlModules)
 

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--首页-->
+    <string name="video_view_num">%1$s views</string>
+    <string name="post_view_num">@string/video_view_num</string>
+    <string name="moment_detail_title">Detail</string>
+    <string name="moment_fqa_help">Community Q&amp;A</string>
+    <string name="moment_fqa_resolve_sub">%1$s problems solved</string>
+    <string name="moment_comment_new">Newest comments</string>
+    <string name="moment_comment_hot">Popular comments</string>
+    <string name="moment_comment_empty">Be the first to comment</string>
+    <string name="moment_comment_hint">Comment…</string>
+    <string name="moment_comment_answer">Answer</string>
+    <string name="moment_comment_send">Publish</string>
+    <string name="moment_open">Expand %1$d comments</string>
+    <string name="moment_close">Collapse</string>
+
+    <string name="moment_all">All</string>
+    <string name="moment_teletext">Article</string>
+    <string name="moment_image">Image</string>
+    <string name="moment_video">Video</string>
+    <string name="moment_comment">Comment</string>
+    <string name="moment_post">Moments</string>
+
+    <string name="moment_title_hot">Trending</string>
+    <string name="moment_title_new">What\'s new</string>
+    <string name="moment_title_follow">Following</string>
+    <string name="moment_follow_tip">You may want to follow:</string>
+    <string name="moment_follow_all">Follow</string>
+    <string name="moment_follow_change">Change </string>
+    <string name="moment_home_post">Share</string>
+    <string name="moment_home_request">Ask</string>
+    <string name="moment_home_article">Write an article</string>
+
+    <!--发布-->
+    <string name="developing">Under development</string>
+    <string name="publish">Publish</string>
+    <string name="publish_moment">@string/moment_home_post</string>
+    <string name="publish_moment_post_answer">Publish answer</string>
+    <string name="moment_post_share_tip">Share your riding experiences and feelings here.</string>
+    <string name="moment_post_choose_tag">Add tag</string>
+    <string name="moment_choose_device_type">@string/moment_choose_device_type_2</string>
+    <string name="moment_choose_device_type_2">Select model</string>
+    <string name="moment_choose_device_type_toast">@string/moment_choose_device_type_2</string>
+    <string name="moment_choose_please">@string/please_select</string>
+    <string name="moment_choose_feed_back">Select problem category</string>
+    <string name="moment_request_content_min_limit">Describe question in detail</string>
+    <string name="moment_request_title_min_limit">Summarize question</string>
+    <string name="moment_request_award">Reward</string>
+    <string name="moment_request_award_no_enough">Insufficient N-Coins</string>
+    <string name="moment_request_balance"><Data><![CDATA[Balance: <font color="#FE741E">%1$d N-Coins</font>]]></Data></string>
+    <string name="moment_post_your_location">Location</string>
+    <string name="moment_post_location_fail">Location failed</string>
+    <string name="moment_post_success">Published</string>
+    <string name="moment_post_world_message">By selecting Publish globally, you agree that users worldwide can review and comment your post. If you do not agree, post will be stored and displayed only in the regional server you are using.</string>
+    <string name="moment_post_world_message_color">Read User Agreement and Privacy Policy</string>
+    <string name="moment_post_topic_tip">Tags for more views (multiple)</string>
+    <string name="moment_request_award_custom">Enter reward</string>
+    <string name="moment_request_award_choose">Choose reward</string>
+    <string name="moment_request_award_input_number">You can enter 1-%1$d</string>
+    <string name="moment_request_award_reasonable_number">Up to 100 N-Coins</string>
+    <string name="moment_post_drafts">Do you want to save?</string>
+    <string name="moment_post_drafts_edit">Continue editing previous draft?</string>
+    <string name="moment_post_drafts_edit_refuse">No </string>
+    <string name="moment_post_drafts_save">Yes</string>
+    <string name="moment_post_drafts_discard">No</string>
+    <string name="moment_post_choose_number">%1$s tags</string>
+
+    <string name="moment_post_album_tab">album</string>
+    <string name="moment_post_album_title">photos and videos</string>
+    <string name="moment_post_shot_video_tab">Photo/ Video</string>
+    <string name="error_no_video_activity">No apps supporting video preview</string>
+    <string name="error_file_type">Unable to select image and video at the same time</string>
+    <string name="moment_post_error_over_count_default">Number of photo limit reached</string>
+    <string name="error_choose_resource_type">Videos exceed limit number</string>
+    <string name="album_empty">Album is empty</string>
+    <string name="photo_error_take_picture">Camera error</string>
+    <string name="photo_error_take_video">Recording error</string>
+    <string name="video_error_so_short">Video recording time is too short</string>
+    <string name="video_error_tip_auto_focus_fail">Focus failure</string>
+    <string name="video_error_tip_no_camera">No camera available</string>
+
+    <!--圈子管理-->
+    <string name="moment_remove_top">Remove from Top</string>
+    <string name="moment_top">Sticky on Top</string>
+    <string name="moment_delete">Delete</string>
+    <string name="moment_delete_dlg_msg">Confirm deleting？</string>
+    <string name="moment_collect">Favorites</string>
+    <string name="moment_remove_collect">Remove from Favorites</string>
+    <string name="moment_best">Select as Best</string>
+    <string name="moment_remove_best">Remove from Best</string>
+    <string name="moment_global">Publish globally</string>
+    <string name="moment_remove_global">Don't publish globally</string>
+    <string name="reply">Reply</string>
+
+    <string name="moment_post_long_press_take_video">Tap to take photo, hold to record video</string>
+
+    <string name="report">Report</string>
+    <string name="reason_delete_hint">Please explain reasons for delete in detail</string>
+    <string name="reason_report_hint">Please explain reasons for report in detail</string>
+
+    <string name="reason_delete_moment"><Data><![CDATA[Delete <font color="#0098EF">%1$s</font>\'s moment:]]></Data></string>
+    <string name="reason_delete_teletext"><Data><![CDATA[Delete <font color="#0098EF">%1$s</font>\'s article:]]></Data></string>
+    <string name="reason_delete_comment"><Data><![CDATA[Delete <font color="#0098EF">%1$s</font>\'s comment:]]></Data></string>
+    <string name="reason_report_moment"><Data><![CDATA[Report <font color="#0098EF">%1$s</font>\'s moment:]]></Data></string>
+    <string name="reason_report_teletext"><Data><![CDATA[Report <font color="#0098EF">%1$s</font>\'s article:]]></Data></string>
+    <string name="reason_report_comment"><Data><![CDATA[Report <font color="#0098EF">%1$s</font>\'s comment:]]></Data></string>
+
+    <!--N粉圈搜索-->
+    <string name="nfans_search_tip">Search</string>
+    <string name="nfans_search_hot_tag">Popular tags</string>
+    <string name="nfans_search_history">Search history</string>
+    <string name="nfans_search_associate">Related contents</string>
+    <string name="nfans_search_correlation_content">Related tags</string>
+    <string name="nfans_search_associate_num"><Data><![CDATA[<font color="#FF7439">%1$s</font> results]]></Data></string>
+
+    <!--标签-->
+    <string name="label_all">@string/please_select</string>
+    <string name="label_best">Select problem category</string>
+    <string name="label_num_unit">Describe question in detail</string><!-- n条-->
+
+    <!--收藏-->
+    <string name="moment_collect_edit">Summarize question</string>
+    <string name="moment_collect_delete">Reward</string>
+
+    <string name="moment_request_question">Insufficient N-Coins</string>
+    <string name="moment_request_input_your_question">Balance：%1$d N-Coins</string>
+    <string name="moment_request_input_your_question_detail">&lt;Data&gt;&lt;![CDATA[Balance：&lt;font color=&quot;#FE741E&quot;&gt;%1$d N-Coins&lt;/font&gt;]]&gt;&lt;/Data&gt;</string>
+    <string name="moment_request_feed_back_type">Balance: %@</string>
+    <string name="moment_post_length">N-Coins</string>
+    <string name="moment_post_processing">Location</string>
+    <string name="moment_post_up_loading">Location failed</string>
+    <string name="moment_post_upload_failed">Published</string>
+    <string name="moment_post_post">By selecting Publish globally, you agree that users worldwide can review and comment your post. If you do not agree, post will be stored and displayed only in the regional server you are using.</string>
+    <string name="moment_post_topic_max_number">Read User Agreement and Privacy Policy</string>
+
+    <string name="image_content">Tags for more views (multiple)</string>
+    <string name="video_content">Enter reward</string>
+    <string name="share_moment">Choose reward</string>
+</resources>

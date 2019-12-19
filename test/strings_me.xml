@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--不需要翻译 start -->
+    <string name="simplified_chinese">中文简体</string>
+    <string name="english">English</string>
+    <!--不需要翻译 end -->
+
+    <!--我的首页-->
+    <string name="me_login_sub_title">探索更多有趣功能</string>
+
+    <string name="mine_item_setting">设置</string>
+    <string name="me_homepage">主页</string>
+    <string name="me_profile">修改资料</string>
+    <string name="mine_sign">签到</string>
+    <string name="mine_signed">已签到</string>
+    <string name="mine_item_level">等级中心</string>
+    <string name="mine_point_record">我的N币</string>
+    <string name="mine_medal_title">勋章馆</string>
+
+    <string name="mine_item_data">我的数据</string>
+    <string name="mine_item_data_view">查看日报</string>
+    <string name="mine_item_task">任务中心</string>
+    <string name="mine_item_active">俱乐部活动</string>
+    <string name="mine_item_collect">我的收藏</string>
+    <string name="mine_item_message">消息通知</string>
+    <string name="mine_item_help">服务与帮助</string>
+    <string name="mine_item_online_service">在线客服</string>
+    <string name="online_service_time">9:00-18:00</string>
+    <string name="task_undo">%1$d个可完成任务</string>
+    <string name="message_unread">%1$s个未读</string>
+
+    <string name="mine_item_collect_helply">这个答案对我有用</string>
+    <string name="mine_item_collect_praise">赞了这条评论</string>
+    <string name="mine_item_collect_moment">赞了这条动态</string>
+    <string name="mine_item_message_reply">&lt;Data&gt;&lt;![CDATA[回复 &lt;font color=&quot;#4C4C4C&quot;&gt;我：&lt;/font&gt;]]&gt;&lt;/Data&gt;</string>
+
+    <string name="me_setting_forum_rule">社区管理规范</string>
+    <string name="me_setting_push">推送设置</string>
+    <string name="me_setting_clear_cache">清除缓存</string>
+    <string name="me_setting_about">关于App</string>
+    <string name="me_setting_update">更新应用</string>
+    <string name="me_setting_update_new">有新版本</string>
+    <string name="me_setting_update_newest">当前已是最新版本</string>
+
+    <string name="receive_push">接收推送</string>
+    <string name="steel_dust_push">电摩推送设置</string>
+    <string name="receive_comment_push">评论</string>
+    <string name="receive_praise_push">点赞</string>
+    <string name="receive_remind_sign">签到提醒</string>
+
+    <string name="clear_cache_empty">无缓存</string>
+    <string name="clear_cache_dlg">确认清除所有本地图片及视频缓存？</string>
+
+    <!--个人主页-->
+    <string name="me_space_post">动态</string>
+    <string name="me_space_follow">关注</string>
+    <string name="me_space_fans">粉丝</string>
+    <string name="post_empty">还没有发布动态</string>
+    <string name="follow_empty">还没有关注的人</string>
+    <string name="fans_empty">还没有粉丝呢</string>`
+
+    <!--关注-->
+    <string name="follow_add">+ 关注</string>
+    <string name="followed">已关注</string>
+    <string name="follow_each_other">相互关注</string>
+    <string name="follow_remove_tip">是否取消对 %1$s 的关注？</string>
+
+    <!-- 关于App -->
+    <string name="me_about_version_current">当前版本</string>
+    <string name="mine_about_introduce">版本信息</string>
+    <string name="login_register_policy_text">隐私政策</string>
+    <string name="login_register_user_agreement">用户协议</string>
+    <string name="mine_about_copyright">纳恩博（北京）科技有限公司保留所有权利</string>
+    <string name="mine_about_copyright_2">Copyright ©2019 Segway-Ninebot.All Rights Reserved.</string>
+
+    <string name="change_language">切换语言</string>
+    <string name="def_language">默认</string>
+
+    <string name="me_message_system_more">查看更多</string>
+    <string name="message_title_comment">评论</string>
+    <string name="message_title_praise">点赞</string>
+    <string name="message_title_system">系统</string>
+    <string name="message_from_momene">来自圈子</string>
+    <string name="message_from_help">来自互助问答</string>
+
+    <string name="ride_grade">骑行等级</string>
+    <string name="ride_mileage">累计骑行</string>
+
+    <string name="ban">禁言</string>
+    <string name="remove_ban">取消禁言</string>
+    <string name="ban_choose_duration">选择禁言期限</string>
+    <string name="ban_3">3天</string>
+    <string name="ban_7">7天</string>
+    <string name="ban_forever">永久</string>
+    <string name="ban_choose_reason">选择禁言理由</string>
+    <string name="ban_reason_description">请详细描述禁言原因...</string>
+    <string name="ban_3_dlg">该用户将被禁言3天，确认继续？</string>
+    <string name="ban_7_dlg">该用户将被禁言7天，确认继续？</string>
+    <string name="ban_forever_dlg">该用户将被永久禁言，确认继续？</string>
+
+    <!--我的数据-->
+    <string name="daily_data">日报</string>
+    <string name="my_track">我的轨迹</string>
+    <string name="device_data_info_format">骑行：%s%s  拥有：%s天</string>
+    <string name="total_mileage_unit">累计骑行</string>
+    <string name="total_continuous_day_unit">连续骑行</string>
+    <string name="total_day_unit">骑行天数</string>
+    <string name="total_mileage_info">此为车主本人在行程前后连接App上传里程的总和。1、若并非每一次行程都上传里程，或行程前后被非车主连接App，则产生的里程数据均不计入车主的「我的总里程」。2、骑行勋章的达成条件依据此数据。</string>
+    <string name="today_mileage_unit">今日里程</string>
+    <string name="today_rank">今日排行</string>
+    <string name="day">天</string>
+
+</resources>
