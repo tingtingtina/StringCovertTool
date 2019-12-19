@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+   
+     <!--灯效设置 大九-->
+    <string name="light_front_mode">Headlight on</string>
+    <string name="light_front_period">Headlight cycle</string>
+    <string name="light_front_auto">Auto-adjust headlight brightness</string>
+    <string name="light_front_value">Headlight brightness</string>
+    <string name="light_handler_mode">Handlebar light</string>
+    <string name="light_handler_auto">Auto-adjust handlebar light brightness</string>
+    <string name="light_handler_value">Handlebar light brightness</string>
+
+    <string-array name="light_front_mode">
+        <item index="0">Close</item>
+        <item index="1">Light on</item>
+        <item index="2">Breathing</item>
+        <item index="3">Blinking</item>
+        <item index="4">Left scrolling</item>
+        <item index="5">Right scrolling</item>
+        <item index="6">Both-way scrolling</item>
+    </string-array>
+
+      <!--最高解锁模式对应的限速卡片提示文案   limit_speed_tip_safe-->
+    <string name="video_content"><Data><![CDATA[完成 <font color="#EE5414">「新手教学」</font>可解除该限速，去完成>>]]></Data></string>
+    <string name="limit_speed_tip_newbie"><Data><![CDATA[<font color="#EE5414">「骑行%s」</font>后可彻底解除限速]]></Data></string>
+</resources>
