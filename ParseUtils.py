@@ -5,6 +5,8 @@ import sys
 import xml.dom.minidom
 import os.path
 from LogUtils import Log
+
+
 class XLSParse:
 
     def __init__(self, filePath):
@@ -20,6 +22,7 @@ class XLSParse:
     # 根据sheet名称获取sheet内容
     def sheet_by_name(self, name):
         return self.data.sheet_by_name(name)
+
 
 class XMLParse:
     @staticmethod
@@ -46,7 +49,7 @@ class XMLParse:
                 module_length_list.append(current_module_len)
                 current_module = module
                 current_module_len = 0
-            
+
             current_module_len += 1
 
         module_length_list.append(current_module_len)
@@ -60,7 +63,7 @@ class XMLParse:
             module = modules[start]
             start += module_len
             filePath = sub_dir_path + module + ".xml"
-            
+
             XMLParse.update_xml_value(filePath, subKeys, subValues)
 
     @staticmethod
@@ -69,46 +72,51 @@ class XMLParse:
         if not os.path.exists(filepath):
             return
         # Log.info ("--- string ---")
-        #读取文档
+        # 读取文档
         xmldoc = xml.dom.minidom.parse(filepath)
-        #filename
+        # filename
         nodes = xmldoc.getElementsByTagName('string')
         for node in nodes:
             xmlKey = node.getAttribute("name")
-            xmlValue = "" # 改变量仅用于输出
+            xmlValue = ""  # 改变量仅用于输出
             if node.firstChild is None:
                 continue
             if node.firstChild.nodeType == node.TEXT_NODE:
                 # 获取某个元素节点的文本内容，先获取子文本节点，然后通过“data”属性获取文本内容
-                xmlValue = node.firstChild.data
-            elif node.firstChild.nodeType == node.ELEMENT_NODE: # 元素节点
-                data_node = node.getElementsByTagName("Data")# 字符串样式
-                if len(data_node) != 0:
-                    data_value =  data_node[0].firstChild.data
+                if len(node.firstChild.data) != 0:
+                    xmlValue = node.firstChild.data
+                else:
+                    continue
+            elif node.firstChild.nodeType == node.ELEMENT_NODE:  # 元素节点
+                data_node = node.getElementsByTagName("Data")  # 字符串样式
+                if len(data_node) != 0 and len(data_node[0].firstChild.data) != 0:
+                    data_value = data_node[0].firstChild.data
                     xmlValue = "<Data>" + data_value + "</Data>"
+                else:
+                    continue
 
             for index, key in enumerate(keys):
-                if key == xmlKey:
+                if key == xmlKey and len(values[index]) != 0:
                     node.firstChild.data = values[index]
-                    Log.info("%s : %s -- >%s "%(xmlKey, xmlValue, node.firstChild.data))
+                    Log.info("%s : %s -- >%s " % (xmlKey, xmlValue, node.firstChild.data))
         # Log.info("--- string end ---\n")
 
         # 数组
         # Log.info("--- array ---")
-        arrray_nodes = xmldoc.getElementsByTagName('string-array')
-        for array_node in arrray_nodes:
+        array_nodes = xmldoc.getElementsByTagName('string-array')
+        for array_node in array_nodes:
             xmlKey = array_node.getAttribute('name')
-            
+
             child_nodes = array_node.getElementsByTagName('item')
             for idx, child_node in enumerate(child_nodes):
                 newKey = xmlKey + "-INDEX-" + str(idx)
-                
+
                 xmlValue = child_node.firstChild.data
                 for index, key in enumerate(keys):
-                    if key == newKey:
+                    if key == newKey and len(values[index]) != 0:
                         child_node.firstChild.data = values[index]
-                        Log.info("%s : %s --> %s"%(newKey, xmlValue, child_node.firstChild.data))
+                        Log.info("%s : %s --> %s" % (newKey, xmlValue, child_node.firstChild.data))
         # Log.info("--- array end ---\n")
         writeFile = open(filepath, 'w')
         writeFile.write(xmldoc.toxml('utf-8'))
-        writeFile.close()        
+        writeFile.close()

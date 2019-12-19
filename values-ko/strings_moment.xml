@@ -127,7 +127,7 @@
     <string name="moment_request_input_your_question_detail">&lt;Data&gt;&lt;![CDATA[Balance：&lt;font color=&quot;#FE741E&quot;&gt;%1$d N-Coins&lt;/font&gt;]]&gt;&lt;/Data&gt;</string>
     <string name="moment_request_feed_back_type">Balance: %@</string>
     <string name="moment_post_length">N-Coins</string>
-    <string name="moment_post_processing">Location</string>
+    <string name="moment_post_processing">현재 위치</string>
     <string name="moment_post_up_loading">Location failed</string>
     <string name="moment_post_upload_failed">Published</string>
     <string name="moment_post_post">By selecting Publish globally, you agree that users worldwide can review and comment your post. If you do not agree, post will be stored and displayed only in the regional server you are using.</string>

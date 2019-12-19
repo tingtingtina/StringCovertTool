@@ -93,9 +93,9 @@
     <string name="ban_forever">Forever</string>
     <string name="ban_choose_reason">Reason for banning the user</string>
     <string name="ban_reason_description">Explain in detail</string>
-    <string name="ban_3_dlg">User will be banned for 3 days. Continue?</string>
-    <string name="ban_7_dlg">User will be banned for 7 days. Continue?</string>
-    <string name="ban_forever_dlg">User will be banned forever. Continue?</string>
+    <string name="ban_3_dlg">즐겨찾기</string>
+    <string name="ban_7_dlg">메시지 센터</string>
+    <string name="ban_forever_dlg">도움말 &amp; 피드백</string>
 
     <!--我的数据-->
     <string name="daily_data">Daily report</string>
