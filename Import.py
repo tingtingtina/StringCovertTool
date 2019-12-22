@@ -7,10 +7,11 @@
 # 可以输出到文件或者目录（需要约定文件 values-en）
 
 from optparse import OptionParser
+
+import Constant
 from LogUtils import Log
 from ParseUtils import *
 import os.path
-import ErrorConstant
 
 
 def covertTargetPath(dir_path, language):
@@ -29,9 +30,9 @@ def covertTargetPath(dir_path, language):
     return targetFilePath
 
 
-class Xls2xmlUtils:
-    keyTitle = "Android keyName"
-    moduleTitle = "Android module"  # 内容为文件名
+class ImportUtils:
+    keyTitle = Constant.Config.keyTitle
+    moduleTitle = Constant.Config.moduleTitle  # 内容为文件名
     targetLanguage = None  # 目标语言，与 filePath 成对使用
     filePath = None  # 目标文件路径
     dirPath = None  # 目标目录路径
@@ -54,7 +55,7 @@ class Xls2xmlUtils:
 
         # 输入 excel
         if not xls_path or not os.path.exists(xls_path):
-            return ErrorConstant.Error(ErrorConstant.ERROR_EXCEL_NOT_EXIST)
+            return Constant.Error(Constant.ERROR_EXCEL_NOT_EXIST)
 
         xlsPath = xls_path
         self.filePath = file_path
@@ -62,7 +63,8 @@ class Xls2xmlUtils:
         self.dirPath = target_dir_path
 
         # 获取 xls 对象，以及目标 sheet（这里默认为第一张表，index 从0开始）
-        xlsParse = XLSParse(xlsPath)
+        xlsParse = XLSParse()
+        xlsParse.open_excel(xlsPath)
 
         sheet = xlsParse.sheet_by_index(0)
 
@@ -83,10 +85,10 @@ class Xls2xmlUtils:
         try:
             firstRow = sheet.row_values(0)
         except Exception as e:
-            return ErrorConstant.Error(ErrorConstant.EXCEPTION_EXL_FILE, e.message)
+            return Constant.Error(Constant.EXCEPTION_EXL_FILE, e.message)
 
         if len(firstRow) == 0:
-            return ErrorConstant.Error(ErrorConstant.ERROR_KEY_NOT_FOUND)
+            return Constant.Error(Constant.ERROR_KEY_NOT_FOUND)
 
         for index in range(len(firstRow)):
             if firstRow[index] == self.keyTitle:
@@ -100,7 +102,7 @@ class Xls2xmlUtils:
                 pass
 
         if keyIndex == -1:
-            return ErrorConstant.Error(ErrorConstant.ERROR_KEY_NOT_FOUND)
+            return Constant.Error(Constant.ERROR_KEY_NOT_FOUND)
 
         # 获取 key 集合，并删除 title 项
         xmlKeys = sheet.col_values(keyIndex)
@@ -113,7 +115,7 @@ class Xls2xmlUtils:
             del xmlValues[0]
 
             XMLParse.update_xml_value(self.filePath, xmlKeys, xmlValues)
-            return ErrorConstant.Error(ErrorConstant.SUCCESS)
+            return Constant.Error(Constant.SUCCESS)
 
         Log.debug("Not file")
 
@@ -121,15 +123,15 @@ class Xls2xmlUtils:
         del xmlModules[0]
 
         if moduleIndex == -1:
-            return ErrorConstant.Error(ErrorConstant.ERROR_MODULE_NOT_FOUND)
+            return Constant.Error(Constant.ERROR_MODULE_NOT_FOUND)
 
         if not self.dirPath:  # 目录为空，返回
             Log.error("Error：输入不合法")
-            return ErrorConstant.Error(ErrorConstant.ERROR_INPUT)
+            return Constant.Error(Constant.ERROR_INPUT)
 
         if not os.path.exists(self.dirPath):
             Log.error("Error：目标目录不存在 %s" % self.dirPath)
-            return ErrorConstant.Error(ErrorConstant.ERROR_DIR_NOT_EXIST)
+            return Constant.Error(Constant.ERROR_DIR_NOT_EXIST)
 
         for index, title in enumerate(firstRow):
             if index < self.fromIndex:
@@ -150,9 +152,9 @@ class Xls2xmlUtils:
             # │   ├── values-ko
             sub_dir_path = covertTargetPath(self.dirPath, targetLanguage)
             if os.path.exists(sub_dir_path):
-                XMLParse.update_mutixml_value(sub_dir_path, xmlKeys, xmlValues, xmlModules)
+                XMLParse.update_multi_xml_value(sub_dir_path, xmlKeys, xmlValues, xmlModules)
 
-        return ErrorConstant.Error(ErrorConstant.SUCCESS)
+        return Constant.Error(Constant.SUCCESS)
 
 
 def addParser():
@@ -165,19 +167,3 @@ def addParser():
     (options, args) = parser.parse_args()
     Log.info("options: %s, args: %s" % (options, args))
     return options
-
-
-# def main():
-#     xls2xmlUtils = Xls2xmlUtils()
-#     options = addParser()
-#     xlsPath = "C:\Users\Administrator\Desktop\App Native - 1126.xlsx"
-#     # filePath ="C:\Users\Administrator\Desktop\p\strings_moment.xml"
-#     dirPath = "E:\Ninebot-liting\stringCovertTool"
-#
-#     # xls2xmlUtils.xls2xml_options(options)
-#     xls2xmlUtils.xls2xml(xlsPath, None, None, dirPath)
-#     Log.info("Done!")
-#
-#
-# # 读取 xls
-# main()

@@ -28,8 +28,6 @@ xls2xml
 
 ```python
 python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l "en" -f "C:\Users\Administrator\Desktop\p\strings_moment.xml"
-
-python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l "en" -f "E:\Ninebot-liting\stringCovertTool\strings_moment.xml"
 ```
 
 表示 从把表格中 zh 那一列内容，替换到 strings_moment.xml 文件中
@@ -38,7 +36,6 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
 
   ```
   python .\xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -d "C:\Users\Administrator\Desktop\p"
-  python .\xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -d "E:/Ninebot-liting/stringCovertTool"
   ```
 
   

@@ -13,7 +13,6 @@ ERROR_MODULE_NOT_FOUND = 4  # 没找到 key
 EXCEPTION_EXL_FILE = 5  # 文件为空或者第一行没有内容
 ERROR_EXCEL_NOT_EXIST = 6  # 文件为空或者第一行没有内容
 
-
 class Error:
     desc = None  # type: str
     code = -1  # type: int
@@ -31,8 +30,6 @@ class Error:
             des = "导入成功！"
         elif self.code == ERROR_DIR_NOT_EXIST:
             des = "目标目录不存在"
-        elif self.code == ERROR_DIR_NOT_EXIST:
-            des = "表格目录不存在"
         elif self.code == ERROR_INPUT:
             des = "输入错误，请查看以下项：\n1. 同时输入目标语言和文件，或者输入目标目录;\n2. 表格中不存在目标语言"
         elif self.code == ERROR_KEY_NOT_FOUND:
@@ -48,3 +45,8 @@ class Error:
         elif des:
             self.desc = des
         return self.desc
+
+
+class Config:
+    keyTitle = "Android keyName"
+    moduleTitle = "Android module"  # 内容为文件名

@@ -8,19 +8,19 @@ import sys
 class Log:
     'Log util'
 
-    #Log info
+    # Log info
     @staticmethod
     def info(msg):
         print msg.encode("GBK", "ignore")
 
-    #Log error
+    # Log error
     @staticmethod
     def error(msg):
         # print('\033[31mError1')
         msg = msg.encode("GBK", "ignore")
         print(msg)
 
-    #Log debug
+    # Log debug
     @staticmethod
     def debug(msg):
         print msg.encode("GBK", "ignore")
