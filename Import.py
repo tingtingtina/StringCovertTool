@@ -26,7 +26,7 @@ def covertTargetPath(dir_path, language):
     # 如果没有 values-en 去 values找
     targetFilePath = dir_path + "\\" + "values-" + language.lower() + "\\"
     if language == "en" and not os.path.exists(targetFilePath):
-        targetFilePath = dir_path + "\\" + "values"
+        targetFilePath = dir_path + "\\" + "values" + "\\"
     return targetFilePath
 
 
@@ -105,22 +105,19 @@ class ImportUtils:
             return Constant.Error(Constant.ERROR_KEY_NOT_FOUND)
 
         # 获取 key 集合，并删除 title 项
-        xmlKeys = sheet.col_values(keyIndex)
-        del xmlKeys[0]
+        xlsKeys = sheet.col_values(keyIndex)
+        del xlsKeys[0]
 
         if self.filePath and tempLanguageIndex:  # 输入是文件，指定目标语言
             Log.debug("keyIndex = %s moduleIndex = %s languageIndex = %s" % (keyIndex, moduleIndex, tempLanguageIndex))
             # 获取 value 集合，并删除 title 项
-            xmlValues = sheet.col_values(tempLanguageIndex)
-            del xmlValues[0]
+            xlsValues = sheet.col_values(tempLanguageIndex)
+            del xlsValues[0]
 
-            XMLParse.update_xml_value(self.filePath, xmlKeys, xmlValues)
+            XMLParse.update_xml_value(self.filePath, xlsKeys, xlsValues)
             return Constant.Error(Constant.SUCCESS)
 
         Log.debug("Not file")
-
-        xmlModules = sheet.col_values(moduleIndex)
-        del xmlModules[0]
 
         if moduleIndex == -1:
             return Constant.Error(Constant.ERROR_MODULE_NOT_FOUND)
@@ -140,8 +137,14 @@ class ImportUtils:
             targetLanguage = title
             # print languageIndex
             # print title
-            xmlValues = sheet.col_values(languageIndex)
-            del xmlValues[0]
+            xlsKeys = sheet.col_values(keyIndex)
+            del xlsKeys[0]
+
+            xlsModules = sheet.col_values(moduleIndex)
+            del xlsModules[0]
+
+            xlsValues = sheet.col_values(languageIndex)
+            del xlsValues[0]
             # 文件路径（子目录） 比如; value-zh
             # ├── android
             # │   ├── values-zh
@@ -152,7 +155,7 @@ class ImportUtils:
             # │   ├── values-ko
             sub_dir_path = covertTargetPath(self.dirPath, targetLanguage)
             if os.path.exists(sub_dir_path):
-                XMLParse.update_multi_xml_value(sub_dir_path, xmlKeys, xmlValues, xmlModules)
+                XMLParse.update_multi_xml_value(sub_dir_path, xlsKeys, xlsValues, xlsModules)
 
         return Constant.Error(Constant.SUCCESS)
 

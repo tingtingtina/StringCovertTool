@@ -4,7 +4,12 @@
 
 ## 使用方法
 
-配置： Config 里面默认配置了 表格的 title
+### 环境
+- Python2
+- python库 xlrd（导入使用）
+
+### 配置： 
+Config 里面默认配置了 表格的 title
 
 - key 名（Android 字符串 name)：Android keyName
 - module 名（xml 文件名）：Android module

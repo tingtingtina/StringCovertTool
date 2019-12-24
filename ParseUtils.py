@@ -66,17 +66,20 @@ class XMLParse:
         current_module = modules[0]
         module_length_list = []
         current_module_len = 0
+        modules_new = []
+        values_new = []
+        keys_new = []
         for mid, module in enumerate(modules):
             if module is None or module == "":
-                del modules[mid]
-                del keys[mid]
-                del values[mid]
                 continue
             if current_module != module:
                 module_length_list.append(current_module_len)
                 current_module = module
                 current_module_len = 0
 
+            modules_new.append(module)
+            values_new.append(values[mid])
+            keys_new.append(keys[mid])
             current_module_len += 1
 
         module_length_list.append(current_module_len)
@@ -85,9 +88,9 @@ class XMLParse:
         end = 0
         for module_len in module_length_list:
             end += module_len
-            subKeys = keys[start:end]
-            subValues = values[start:end]
-            module = modules[start]
+            subKeys = keys_new[start:end]
+            subValues = values_new[start:end]
+            module = modules_new[start]
             start += module_len
             filePath = sub_dir_path + module + ".xml"
 
@@ -95,7 +98,7 @@ class XMLParse:
 
     @staticmethod
     def update_xml_value(file_path, keys, values):
-        # Log.info("--- updating xml... --- %s"%filepath)
+        # Log.info("--- updating xml... --- %s" % file_path)
         if not os.path.exists(file_path):
             return
         # Log.info ("--- string ---")
