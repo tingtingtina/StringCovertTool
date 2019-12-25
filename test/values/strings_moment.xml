@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--首页-->
+
+    <string name="moment_title_hot">Trending</string>
+    <string name="moment_title_new">What's new</string>
+    <string name="moment_title_follow">Following</string>
+
+    <string name="moment_post_album_tab">album</string>
+    <string name="moment_post_album_title">photos and videos</string>
+    <string name="moment_post_shot_video_tab">Photo/ Video</string>
+    <string name="error_no_video_activity">No apps supporting video preview</string>
+    <string name="error_file_type">Unable to select image and video at the same time</string>
+    <string name="moment_post_error_over_count_default">Number of photo limit reached</string>
+    <string name="error_choose_resource_type">Videos exceed limit number</string>
+    <string name="album_empty">Album is empty</string>
+    <string name="photo_error_take_picture">Camera error</string>
+    <string name="photo_error_take_video">Recording error</string>
+    <string name="video_error_so_short">Video recording time is too short</string>
+    <string name="video_error_tip_auto_focus_fail">Focus failure</string>
+    <string name="video_error_tip_no_camera">No camera available</string>
+
+    <!--圈子管理-->
+    <string name="moment_remove_top">Remove from Top</string>
+    <string name="moment_top">Sticky on Top</string>
+    <string name="moment_delete">Delete</string>
+    <string name="moment_delete_dlg_msg">Confirm deleting？</string>
+    <string name="moment_collect">Favorites</string>
+    <string name="moment_remove_collect">Remove from Favorites</string>
+    <string name="moment_best">Select as Best</string>
+    <string name="moment_remove_best">Remove from Best</string>
+    <string name="moment_global">Publish globally</string>
+    <string name="moment_remove_global">Don't publish globally</string>
+    <string name="reply">Reply</string>
+
+    <string name="moment_post_long_press_take_video">Tap to take photo, hold to record video</string>
+
+    <!--N粉圈搜索-->
+    <string name="nfans_search_tip">Search</string>
+    <string name="nfans_search_hot_tag">Popular tags</string>
+    <string name="nfans_search_history">Search history</string>
+    <string name="nfans_search_associate">Related contents</string>
+    <string name="nfans_search_correlation_content">Related tags</string>
+    <string name="nfans_search_associate_num"><Data><![CDATA[共<font color="#FF7439">%1$s</font>条]]></Data></string>
+</resources>

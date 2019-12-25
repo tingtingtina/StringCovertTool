@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--不需要翻译 start -->
+    <string name="simplified_chinese">中文简体</string>
+    <string name="english">English</string>
+    <!--不需要翻译 end -->
+
+    <string name="mine_item_setting">设置</string>
+    <string name="me_homepage">主页</string>
+    <string name="me_profile">修改资料</string>
+    <string name="mine_sign">签到</string>
+    <string name="mine_signed">已签到</string>
+
+    <string name="mine_item_data">我的数据</string>
+    <string name="mine_item_data_view">查看日报</string>
+    <string name="mine_item_task">任务中心</string>
+    <string name="mine_item_active">俱乐部活动</string>
+    <string name="mine_item_collect">我的收藏</string>
+    <string name="mine_item_message">消息通知</string>
+    <string name="mine_item_help">服务与帮助</string>
+    <string name="task_undo">%1$d个可完成任务</string>
+    <string name="message_unread">%1$s个未读</string>
+
+    <string name="mine_item_collect_helply">这个答案对我有用</string>
+    <string name="mine_item_collect_praise">赞了这条评论</string>
+    <string name="mine_item_collect_moment">赞了这条动态</string>
+    <string name="mine_item_message_reply"><Data><![CDATA[回复 <font color="#4C4C4C">我：</font>]]></Data></string>
+
+    <string name="me_setting_forum_rule">社区管理规范</string>
+    <string name="me_setting_push">推送设置</string>
+    <string name="me_setting_clear_cache">清除缓存</string>
+    <string name="me_setting_about">关于App</string>
+    <string name="me_setting_update">更新应用</string>
+    <string name="me_setting_update_new">有新版本</string>
+    <string name="me_setting_update_newest">当前已是最新版本</string>
+
+    <string name="me_message_system_more">查看更多</string>
+    <string name="message_title_comment">评论</string>
+    <string name="message_title_praise">点赞</string>
+    <string name="message_title_system">系统</string>
+
+     <string-array name="gender_item">
+        <item id="0">男</item>
+        <item id="1">女</item>
+    </string-array>
+</resources>

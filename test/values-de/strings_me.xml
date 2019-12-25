@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--不需要翻译 start -->
+    <string name="simplified_chinese">中文简体</string>
+    <string name="english">English</string>
+    <!--不需要翻译 end -->
+
+    <string name="mine_item_setting">Einstellungen</string>
+    <string name="me_homepage">Startseite</string>
+    <string name="me_profile">Profil bearbeiten</string>
+    <string name="mine_sign">Anmelden</string>
+    <string name="mine_signed">Angemeldet</string>
+
+    <string name="mine_item_data">Meine Daten</string>
+    <string name="mine_item_data_view">Tagesbericht anzeigen</string>
+    <string name="mine_item_task">Aufgaben</string>
+    <string name="mine_item_active">Clubaktivitäten</string>
+    <string name="mine_item_collect">Favoriten</string>
+    <string name="mine_item_message">Benachrichtigungen</string>
+    <string name="mine_item_help">Hilfe und Feedback</string>
+    <string name="task_undo">%1$d zu erledigende Aufgaben</string>
+    <string name="message_unread">%1$s ungelesen</string>
+
+    <string name="mine_item_collect_helply">Hilfreich</string>
+    <string name="mine_item_collect_praise">Hat diesen Kommentar geliked</string>
+    <string name="mine_item_collect_moment">Hat diesen Post geliked </string>
+    <string name="mine_item_message_reply"><Data><![CDATA[回复 <font color="#4C4C4C">我：</font>]]></Data></string>
+
+    <string name="me_setting_forum_rule">Community Management Regeln</string>
+    <string name="me_setting_push">Benachrichtigungen</string>
+    <string name="me_setting_clear_cache">Cache leeren</string>
+    <string name="me_setting_about">Info</string>
+    <string name="me_setting_update">App aktualisieren</string>
+    <string name="me_setting_update_new">Neue Version gefunden</string>
+    <string name="me_setting_update_newest">Es ist aktuell.</string>
+
+    <string name="me_message_system_more">Mehr anzeigen</string>
+    <string name="message_title_comment">Kommentare</string>
+    <string name="message_title_praise">Likes</string>
+    <string name="message_title_system">System </string>
+
+     <string-array name="gender_item">
+        <item id="0">Male</item>
+        <item id="1">Female</item>
+    </string-array>
+</resources>

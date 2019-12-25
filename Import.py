@@ -36,7 +36,7 @@ class ImportUtils:
     targetLanguage = None  # 目标语言，与 filePath 成对使用
     filePath = None  # 目标文件路径
     dirPath = None  # 目标目录路径
-    fromIndex = 4  # 从 fromIndex 开始往后列导入
+    fromIndex = Constant.Config.import_start_col  # 从 fromIndex 开始往后列导入
 
     def __init__(self):
         pass
@@ -124,7 +124,7 @@ class ImportUtils:
 
         if not self.dirPath:  # 目录为空，返回
             Log.error("Error：输入不合法")
-            return Constant.Error(Constant.ERROR_INPUT)
+            return Constant.Error(Constant.ERROR_IMPORT_INPUT)
 
         if not os.path.exists(self.dirPath):
             Log.error("Error：目标目录不存在 %s" % self.dirPath)
@@ -154,6 +154,7 @@ class ImportUtils:
             # │   ├── values-de
             # │   ├── values-ko
             sub_dir_path = covertTargetPath(self.dirPath, targetLanguage)
+            print sub_dir_path
             if os.path.exists(sub_dir_path):
                 XMLParse.update_multi_xml_value(sub_dir_path, xlsKeys, xlsValues, xlsModules)
 

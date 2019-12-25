@@ -6,23 +6,29 @@
 
 ### 环境
 - Python2
-- python库 xlrd（导入使用）
+- python库 
+    - xlrd（导入使用）
+    - pyExcelerator(导出使用)
 
-### 配置： 
-Config 里面默认配置了 表格的 title
+### 配置
+Config 里面默认配置了 表格的 title 等属性
+```python
+keyTitle = "Android keyName"  # key 名（Android 字符串 name)
+moduleTitle = "Android module"  # module 名（xml 文件名）
+import_start_col = 2  # 从第几列开始导入
+    
+export_excel_name = "Output.xls"  # 导出的 excel 文件名
+export_base_dir = "values-zh"  # 导出基准文件夹
+export_base_title = "zh"  # 导出基准 title
+```
 
-- key 名（Android 字符串 name)：Android keyName
-- module 名（xml 文件名）：Android module
-
-## 参数说明
+## 参数说明 
 
 ### 导入
 
-### 导出
+- -i 输入excel 的路径
 
-- -i 输入excel的路径
-
-- -f 输入目标xml路径
+- -f 输入目标 xml 路径
 
 - -l 输入目标语言简写，如 en zh 等，与 ```-f``` 成对使用
 
@@ -32,7 +38,7 @@ Config 里面默认配置了 表格的 title
 
 ```
 ├── andorid
-│   ├── value-zh
+│   ├── values-zh
 │   |	├── strings_device.xml
 │   |	├── strings_me.xml
 │   |	├── strings_moment.xml
@@ -55,8 +61,63 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
   ```
   python .\xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -d "C:\Users\Administrator\Desktop\p"
   ```
+### 导出
+> 导出没有添加输入参数，直接支持可视化操作
+- 单个文件，
+    - 输入要导出的 excel 路径，比如，选择路径为 C:\Users\Administrator\Desktop，那么会在桌面上创建一个 Output.xls 文件，完成路径为 C:\Users\Administrator\Desktop\Output.xls
+    - 输入要导出的 xml 文件，结果就会将 xml 的 键值对导出到 excel 表中
+    
+- 目录方式
+    - 要导出的 excel 路径，同上
+    - 要导出的 xml 目录路径，如 ..\android, android 目录下有如下文件格式
+   
+   
+    ```
+    ├── andorid
+    │   ├── values-zh
+    │   |	├── strings_device.xml
+    │   |	├── strings_me.xml
+    │   |	├── strings_moment.xml
+    │   ├── values-de
+    │   ├── values-ko
+    │   ├── values
+    ```
+    注：目录方式会默认以 values-zh 作为基准（比如 key 的顺序），可以通过修改 Config 属性 ```export_base_dir``` 和 ```export_base_title``` 来定制
+   
+   ### 导出效果
+   
+   | Android module | Android keyName | zh   | en   | ko   |
+   | -------------- | --------------- | ---- | ---- | ---- |
+   | strings_me     | me_1            |      |      |      |
+   | strings_me     | me_2            |      |      |      |
+   | strings_me     | me_3            |      |      |      |
+   | strings_moment | moment_1        |      |      |      |
+   | strings_moment | moment_2        |      |      |      |
+   | strings_moment | moment_3        |      |      |      |
+   | strings_device | device_1        |      |      |      |
+### 注意点：
 
+- xml 目录指的都是包含着 values-zh 等目录的文件夹
+
+- 这里的 module 指的是 同一种语言下的 strings.xml 文件的文件名
+
+- 如果在字符串定义有数组，比如 strings-array表示，会自定义名称，比如 下面就会生成两个键值对
+
+  - gender_item-INDEX-0:男
+  - gender_item-INDEX-1:女
+
+  ```xml
+  <string-array name="gender_item">    
+  	<item>男</item>    
+  	<item>女</item>
+  </string-array>
+  ```
+- 关于导入列配置 ```import_start_col```，项目使用表格 是从第 2 列开始做导入（从0开始），也就是 en 和 de 需导入，在实际使用中可根据需求处理
 ## 可视化使用
+
 - 上面直接使用参数的方式还是容易出错，建议使用下面的方式，更清晰易懂
 
 ```python pick_me.py install```
+
+## 测试
+- ImportTestUnit.py 和 ExportTestUnit.py 用户导入导出测试

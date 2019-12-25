@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--首页-->
+
+    <string name="moment_title_hot">Populär</string>
+    <string name="moment_title_new">Neuigkeiten</string>
+    <string name="moment_title_follow">Folgen</string>
+
+    <string name="moment_post_album_tab">Album</string>
+    <string name="moment_post_album_title">Fotos und Videos</string>
+    <string name="moment_post_shot_video_tab">Foto / Video</string>
+    <string name="error_no_video_activity">Keine Apps, die Videovorschau unterstützen</string>
+    <string name="error_file_type">Bilder und Videos können nicht gleichzeitig ausgewählt werden</string>
+    <string name="moment_post_error_over_count_default">Max. Anzahl Foto erreicht</string>
+    <string name="error_choose_resource_type">Videos überschreiten max. Anzahl</string>
+    <string name="album_empty">Album ist leer</string>
+    <string name="photo_error_take_picture">Kamerafehler</string>
+    <string name="photo_error_take_video">Aufzeichnungsfehler</string>
+    <string name="video_error_so_short">Das Video ist zu kurz.</string>
+    <string name="video_error_tip_auto_focus_fail">Fokussierung fehlgeschlagen</string>
+    <string name="video_error_tip_no_camera">Es ist keine Kamera verfügbar</string>
+
+    <!--圈子管理-->
+    <string name="moment_remove_top">Von oben entfernen</string>
+    <string name="moment_top">Oben fixieren</string>
+    <string name="moment_delete">Löschen</string>
+    <string name="moment_delete_dlg_msg">Löschen bestätigen?</string>
+    <string name="moment_collect">Favoriten</string>
+    <string name="moment_remove_collect">Aus Favoriten entfernen</string>
+    <string name="moment_best">Als Beste(n) auswählen</string>
+    <string name="moment_remove_best">Aus der Bestenliste entfernen</string>
+    <string name="moment_global">Global veröffentlichen</string>
+    <string name="moment_remove_global">Nicht global veröffentlichen</string>
+    <string name="reply">Reply</string>
+
+    <string name="moment_post_long_press_take_video">Tippen Sie, um ein Foto aufzunehmen und halten Sie gedrückt, um ein Video aufzunehmen</string>
+
+    <!--N粉圈搜索-->
+    <string name="nfans_search_tip">Suche</string>
+    <string name="nfans_search_hot_tag">Beliebte Tags</string>
+    <string name="nfans_search_history">Verlauf durchsuchen</string>
+    <string name="nfans_search_associate">Verwandte Inhalte</string>
+    <string name="nfans_search_correlation_content">Verwandte Tags</string>
+    <string name="nfans_search_associate_num"><Data><![CDATA[共<font color="#FF7439">%1$s</font>条]]></Data></string>
+</resources>

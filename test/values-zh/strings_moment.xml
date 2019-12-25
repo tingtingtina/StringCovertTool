@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--首页-->
+
+    <string name="moment_title_hot">热门</string>
+    <string name="moment_title_new">新鲜事</string>
+    <string name="moment_title_follow">关注</string>
+
+    <string name="moment_post_album_tab">相册</string>
+    <string name="moment_post_album_title">照片与视频</string>
+    <string name="moment_post_shot_video_tab">拍照/摄像</string>
+    <string name="error_no_video_activity">没有支持视频预览的应用</string>
+    <string name="error_file_type">视频与图片不可同时选择</string>
+    <string name="moment_post_error_over_count_default">照片数量已达上限</string>
+    <string name="error_choose_resource_type">视频数量已达上限</string>
+    <string name="album_empty">相册内还没有图片哦</string>
+    <string name="photo_error_take_picture">拍照错误</string>
+    <string name="photo_error_take_video">录制错误</string>
+    <string name="video_error_so_short">视频录制时间太短</string>
+    <string name="video_error_tip_auto_focus_fail">对焦失败</string>
+    <string name="video_error_tip_no_camera">没有获取到可用的摄像头</string>
+
+    <!--圈子管理-->
+    <string name="moment_remove_top">取消置顶</string>
+    <string name="moment_top">全局置顶</string>
+    <string name="moment_delete">删除</string>
+    <string name="moment_delete_dlg_msg">是否确认删除</string>
+    <string name="moment_collect">收藏</string>
+    <string name="moment_remove_collect">取消收藏</string>
+    <string name="moment_best">加精选</string>
+    <string name="moment_remove_best">取消精选</string>
+    <string name="moment_global">全球发布</string>
+    <string name="moment_remove_global">取消全球</string>
+    <string name="reply">回复</string>
+
+    <string name="moment_post_long_press_take_video">轻触拍照，长按摄像</string>
+
+    <!--N粉圈搜索-->
+    <string name="nfans_search_tip">请输入要搜索的内容</string>
+    <string name="nfans_search_hot_tag">热门标签</string>
+    <string name="nfans_search_history">搜索历史</string>
+    <string name="nfans_search_associate">相关内容</string>
+    <string name="nfans_search_correlation_content">相关标签</string>
+    <string name="nfans_search_associate_num"><Data><![CDATA[共<font color="#FF7439">%1$s</font>条]]></Data></string>
+</resources>

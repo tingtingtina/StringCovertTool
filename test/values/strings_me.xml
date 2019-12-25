@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <!--不需要翻译 start -->
+    <string name="simplified_chinese">中文简体</string>
+    <string name="english">English</string>
+    <!--不需要翻译 end -->
+
+    <string name="mine_item_setting">Settings</string>
+    <string name="me_homepage">Homepage</string>
+    <string name="me_profile">Edit profile</string>
+    <string name="mine_sign">Sign in</string>
+    <string name="mine_signed">Signed in</string>
+
+    <string name="mine_item_data">My Data</string>
+    <string name="mine_item_data_view">View daily report</string>
+    <string name="mine_item_task">Tasks</string>
+    <string name="mine_item_active">Club Activities</string>
+    <string name="mine_item_collect">Favorites</string>
+    <string name="mine_item_message">Notifications</string>
+    <string name="mine_item_help">Help &amp; Feedback</string>
+    <string name="task_undo">%1$d tasks to do</string>
+    <string name="message_unread">%1$s unread</string>
+
+    <string name="mine_item_collect_helply">Helpful</string>
+    <string name="mine_item_collect_praise">Liked this comment</string>
+    <string name="mine_item_collect_moment">Liked this post</string>
+    <string name="mine_item_message_reply"><Data><![CDATA[回复 <font color="#4C4C4C">我：</font>]]></Data></string>
+
+    <string name="me_setting_forum_rule">Community Management Rules</string>
+    <string name="me_setting_push">Notifications</string>
+    <string name="me_setting_clear_cache">Clear Cache</string>
+    <string name="me_setting_about">About App</string>
+    <string name="me_setting_update">Update App</string>
+    <string name="me_setting_update_new">New version found</string>
+    <string name="me_setting_update_newest">It is up to date</string>
+
+    <string name="me_message_system_more">View more</string>
+    <string name="message_title_comment">Comments</string>
+    <string name="message_title_praise">Likes</string>
+    <string name="message_title_system">System</string>
+
+     <string-array name="gender_item">
+        <item id="0">Male</item>
+        <item id="1">Female</item>
+    </string-array>
+</resources>
