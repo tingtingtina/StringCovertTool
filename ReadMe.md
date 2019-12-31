@@ -20,6 +20,8 @@ import_start_col = 2  # 从第几列开始导入
 export_excel_name = "Output.xls"  # 导出的 excel 文件名
 export_base_dir = "values-zh"  # 导出基准文件夹
 export_base_title = "zh"  # 导出基准 title
+
+export_only_zh = False  # 是否仅导出中文字符
 ```
 
 ## 参数说明 
@@ -113,6 +115,14 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
   </string-array>
   ```
 - 关于导入列配置 ```import_start_col```，项目使用表格 是从第 2 列开始做导入（从0开始），也就是 en 和 de 需导入，在实际使用中可根据需求处理
+- ```export_only_zh``` 需求来源于，我们在项目中会追加文案（默认中文），在没有多语言翻译的时候，其他的 strings 都会写成中文，为了便于仅导出为翻译的部分，添加此字段辅助。
+    - 常用使用方法， 将导出基准设为非中文的语言，如 下面将基准设为英文，并将近导出中文支付设为 true，那么导出的就是没有翻译（仅中文）的内容
+    - 为什么不能将基准设为中文？ 如果以中文为基准，所有的字符串都会导出来啦
+    ```python
+    export_base_dir = "values"  # 导出基准文件夹
+    export_base_title = "en"  # 导出基准 title
+    export_only_zh = True  # 是否仅导出中文字符
+    ```
 ## 可视化使用
 
 - 上面直接使用参数的方式还是容易出错，建议使用下面的方式，更清晰易懂

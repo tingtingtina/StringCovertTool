@@ -7,6 +7,7 @@ import os.path
 
 import xlwt
 
+import Constant
 from LogUtils import Log
 import collections
 
@@ -155,7 +156,12 @@ class XMLParse:
         for index, node in enumerate(nodes):
             key = node.getAttribute("name")
             value = XMLParse.get_text_node_value(node)
-            dic[key] = value
+            if not Constant.Config.export_only_zh:
+                dic[key] = value
+            else:
+                if is_chinese(value):
+                    dic[key] = value
+
             # Log.info("%s : %s" % (key, value))
 
         array_nodes = xml_doc.getElementsByTagName("string-array")
@@ -165,5 +171,21 @@ class XMLParse:
             for idx, child_node in enumerate(child_nodes):
                 newKey = key + "-INDEX-" + str(idx)
                 value = XMLParse.get_text_node_value(child_node)
-                dic[newKey] = value
+                if not Constant.Config.export_only_zh:
+                    dic[newKey] = value
+                else:
+                    if is_chinese(value):
+                        dic[newKey] = value
         return dic
+
+
+def is_chinese(string):
+    """
+    检查整个字符串是否包含中文
+    :param string: 需要检查的字符串
+    :return: bool
+    """
+    for ch in string:
+        if u'\u4e00' <= ch <= u'\u9fff':
+            return True
+    return False

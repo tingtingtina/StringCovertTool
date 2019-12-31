@@ -61,3 +61,5 @@ class Config:
     export_excel_name = "Output.xls"  # 导出的 excel 文件名
     export_base_dir = "values-zh"  # 导出基准文件夹
     export_base_title = "zh"  # 导出基准 title
+
+    export_only_zh = False  # 是否仅导出中文字符
