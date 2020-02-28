@@ -55,6 +55,7 @@ class ImportUtils:
 
         # 输入 excel
         if not xls_path or not os.path.exists(xls_path):
+            Log.error(Constant.Error(Constant.ERROR_EXCEL_NOT_EXIST).get_desc_en())
             return Constant.Error(Constant.ERROR_EXCEL_NOT_EXIST)
 
         xlsPath = xls_path
@@ -85,9 +86,11 @@ class ImportUtils:
         try:
             firstRow = sheet.row_values(0)
         except Exception as e:
+            Log.error(Constant.Error(Constant.EXCEPTION_EXL_FILE, e.message).get_desc_en())
             return Constant.Error(Constant.EXCEPTION_EXL_FILE, e.message)
 
         if len(firstRow) == 0:
+            Log.error(Constant.Error(Constant.ERROR_KEY_NOT_FOUND).get_desc_en())
             return Constant.Error(Constant.ERROR_KEY_NOT_FOUND)
 
         for index in range(len(firstRow)):
@@ -102,6 +105,7 @@ class ImportUtils:
                 pass
 
         if keyIndex == -1:
+            Log.error(Constant.Error(Constant.ERROR_KEY_NOT_FOUND).get_desc_en())
             return Constant.Error(Constant.ERROR_KEY_NOT_FOUND)
 
         # 获取 key 集合，并删除 title 项
@@ -115,19 +119,21 @@ class ImportUtils:
             del xlsValues[0]
 
             XMLParse.update_xml_value(self.filePath, xlsKeys, xlsValues)
+            Log.info(Constant.Error(Constant.SUCCESS).get_desc_en())
             return Constant.Error(Constant.SUCCESS)
 
         Log.debug("Not file")
 
         if moduleIndex == -1:
+            Log.error(Constant.Error(Constant.ERROR_MODULE_NOT_FOUND).get_desc_en())
             return Constant.Error(Constant.ERROR_MODULE_NOT_FOUND)
 
         if not self.dirPath:  # 目录为空，返回
-            Log.error("Error：输入不合法")
+            Log.error(Constant.Error(Constant.ERROR_IMPORT_INPUT).get_desc_en())
             return Constant.Error(Constant.ERROR_IMPORT_INPUT)
 
         if not os.path.exists(self.dirPath):
-            Log.error("Error：目标目录不存在 %s" % self.dirPath)
+            Log.error(Constant.Error(Constant.ERROR_DIR_NOT_EXIST).get_desc_en())
             return Constant.Error(Constant.ERROR_DIR_NOT_EXIST)
 
         for index, title in enumerate(firstRow):
@@ -154,10 +160,10 @@ class ImportUtils:
             # │   ├── values-de
             # │   ├── values-ko
             sub_dir_path = covertTargetPath(self.dirPath, targetLanguage)
-            print sub_dir_path
+            # print sub_dir_path
             if os.path.exists(sub_dir_path):
                 XMLParse.update_multi_xml_value(sub_dir_path, xlsKeys, xlsValues, xlsModules)
-
+        Log.info(Constant.Error(Constant.SUCCESS).get_desc_en())
         return Constant.Error(Constant.SUCCESS)
 
 

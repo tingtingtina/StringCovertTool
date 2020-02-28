@@ -55,7 +55,7 @@ class XMLParse:
 
     @staticmethod
     def update_multi_xml_value(sub_dir_path, keys, values, modules):
-        Log.info("\n\n" + sub_dir_path + "\n\n")
+        Log.info("\n\n" + sub_dir_path + "\n")
         '''
         sub_dir_path: 目标子目录，比如 value-zh
         '''
@@ -99,7 +99,7 @@ class XMLParse:
 
     @staticmethod
     def update_xml_value(file_path, keys, values):
-        # Log.info("--- updating xml... --- %s" % file_path)
+        Log.info("--- updating xml... \n%s" % file_path)
         if not os.path.exists(file_path):
             return
         # Log.info ("--- string ---")
@@ -117,7 +117,7 @@ class XMLParse:
             for index, key in enumerate(keys):
                 if key == xmlKey and len(values[index]) != 0:
                     node.firstChild.data = values[index]
-                    Log.info("%s : %s -- >%s " % (xmlKey, xmlValue, node.firstChild.data))
+                    Log.debug("%s : %s -- >%s " % (xmlKey, xmlValue, node.firstChild.data))
         # Log.info("--- string end ---\n")
 
         # 数组
@@ -134,7 +134,7 @@ class XMLParse:
                 for index, key in enumerate(keys):
                     if key == newKey and len(values[index]) != 0:
                         child_node.firstChild.data = values[index]
-                        Log.info("%s : %s --> %s" % (newKey, xmlValue, child_node.firstChild.data))
+                        Log.debug("%s : %s --> %s" % (newKey, xmlValue, child_node.firstChild.data))
         # Log.info("--- array end ---\n")
         writeFile = open(file_path, 'w')
         writeFile.write(xml_doc.toxml('utf-8'))

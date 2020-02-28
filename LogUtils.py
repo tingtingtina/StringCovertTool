@@ -8,19 +8,19 @@ import sys
 class Log:
     'Log util'
 
-    # Log info
+    # Log info blue
     @staticmethod
     def info(msg):
-        print msg.encode("GBK", "ignore")
+        print('\033[34m')
+        print msg
 
-    # Log error
+    # Log error red
     @staticmethod
     def error(msg):
-        # print('\033[31mError1')
-        msg = msg.encode("GBK", "ignore")
-        print(msg)
+        print('\033[31m')
+        print msg.encode("GBK", "ignore")
 
-    # Log debug
+    # Log debug white
     @staticmethod
     def debug(msg):
-        print msg.encode("GBK", "ignore")
+        print('\033[37m' + msg.encode("GBK", "ignore"))

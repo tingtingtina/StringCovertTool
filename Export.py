@@ -17,8 +17,10 @@ class ExportUtils:
     def xml2xls(self, xls_dir, input_dir):
         # type: (str, str) -> Constant.Error
         if not xls_dir or not os.path.exists(xls_dir):
+            Log.error(Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "excel dir").get_desc_en())
             return Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "excel dir")
         if not input_dir or not os.path.exists(input_dir):
+            Log.error(Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "xml dir").get_desc_en())
             return Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "xml dir")
 
         xlsPath = os.path.join(xls_dir, Constant.Config.export_excel_name)
@@ -31,17 +33,21 @@ class ExportUtils:
 
         # 获取某个文件夹的所有文件，作为标准 这里是 value-zh
         base_dir = os.path.join(input_dir, Constant.Config.export_base_dir)
+        if not os.path.exists(base_dir):
+            Log.error(Constant.Error(Constant.ERROR_DIR_NOT_EXIST,
+                                     "base_dir\nU can change base dir in Constant-->Config").get_desc_en())
+            return Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "base_dir\nU can change base dir in Constant-->Config")
         #  os.walk(path)返回三个值：
         #  parent, 表示path的路径、
         #  dirnames, path路径下的文件夹的名字
         #  filenames path路径下文件夹以外的其他文件。
-        print input_dir
+        Log.info(input_dir)
         sub_dir_names = []
         for _, dir_names, _ in os.walk(input_dir):
             if dir_names:
                 sub_dir_names = dir_names
                 break
-        print sub_dir_names
+        Log.info(sub_dir_names)
 
         row = 1
         # 文件夹下所有文件
@@ -61,7 +67,7 @@ class ExportUtils:
 
                 # 当前文件夹的语言
                 lan = getDirLan(input_dir, cur_dir_path)
-                print lan
+                Log.info(lan)
                 if not lan:  # 文件夹爱不符合规范不处理（values-lan 或 values）
                     continue
 
@@ -82,7 +88,7 @@ class ExportUtils:
             writeDict(ws, base_dict, row, 0, module_name, True)
 
             row = len(base_dict)
-            print("row = %s" % row)
+            Log.info("row = %s" % row)
 
         workbook.save(xlsPath)
         return Constant.Error(Constant.SUCCESS)
@@ -90,8 +96,10 @@ class ExportUtils:
     def xml2xls_single(self, xls_dir, input_file_path):
         # type: (str, str) -> object
         if not xls_dir or not os.path.exists(xls_dir):
+            Log.error(Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "excel dir").get_desc_en())
             return Constant.Error(Constant.ERROR_DIR_NOT_EXIST, "excel dir")
         if not input_file_path or not os.path.exists(input_file_path):
+            Log.error(Constant.Error(Constant.ERROR_XML_FILE_NOT_EXIST).get_desc_en())
             return Constant.Error(Constant.ERROR_XML_FILE_NOT_EXIST)
         xlsPath = os.path.join(xls_dir, Constant.Config.export_excel_name)
         workbook = pyExcelerator.Workbook()
@@ -101,6 +109,7 @@ class ExportUtils:
         dic = XMLParse.get_value_and_key(input_file_path)
         writeDict(ws, dic, 1, 0, None, True)
         workbook.save(xlsPath)
+        Log.info(Constant.Error(Constant.SUCCESS).get_desc_en())
         return Constant.Error(Constant.SUCCESS)
 
 
@@ -136,7 +145,7 @@ def getDirLan(input_dir, dir_path):
 def writeDict(ws, dic, start_row, col, module, isKeepKey):
     row = start_row
     for (key, value) in dic.items():
-        Log.info("%s : %s" % (key, value))
+        Log.debug("%s : %s" % (key, value))
         if isKeepKey:
             if module:
                 ws.write(row, col, module)

@@ -49,6 +49,35 @@ class Error:
             self.desc = des
         return self.desc
 
+    def get_desc_en(self):
+        des = ""
+        if self.code == SUCCESS:
+            des = "Success!"
+        elif self.code == ERROR_DIR_NOT_EXIST:
+            des = "Directory does not exist"
+        elif self.code == ERROR_IMPORT_INPUT:
+            des = "input error " \
+                  "\n1. input the target language and file，or target directory;" \
+                  "\n2. The excel file does not contain the target language."
+        elif self.code == ERROR_KEY_NOT_FOUND:
+            des = "Table structure error：" \
+                  "\nNo key column was retrieved. The key column should be named Android keyName"
+        elif self.code == ERROR_MODULE_NOT_FOUND:
+            des = "Table structure error：" \
+                  "\nThe Module column was not retrieved and the key column needs to be named Android Module"
+        elif self.code == EXCEPTION_EXL_FILE:
+            des = "Table structure error：" \
+                  "\nThe table is empty or no header row is retrieved, and the header column is the first row"
+        elif self.code == ERROR_EXCEL_NOT_EXIST:
+            des = "Please enter the form file"
+        elif self.code == ERROR_XML_FILE_NOT_EXIST:
+            des = "The XML file does not exist"
+        if self.desc and des:
+            self.desc = "%s\nMessage:%s" % (des, self.desc)
+        elif des:
+            self.desc = des
+        return self.desc
+
 
 class Config:
     def __init__(self):
