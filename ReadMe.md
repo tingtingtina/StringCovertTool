@@ -129,5 +129,13 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
 
 ```python pick_me.py install```
 
+**xml——>excel**
+
+![导出](https://github.com/tingtingtina/StringCovertTool/blob/master/image/export%20xml.png)
+
+**excel——>xml**
+
+![导入](https://github.com/tingtingtina/StringCovertTool/blob/master/image/import%20xml.png)
+
 ## 测试
 - ImportTestUnit.py 和 ExportTestUnit.py 用户导入导出测试
