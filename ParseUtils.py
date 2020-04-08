@@ -155,6 +155,8 @@ class XMLParse:
         dic = collections.OrderedDict()
         for index, node in enumerate(nodes):
             key = node.getAttribute("name")
+            if node is None or node.firstChild is None:
+                continue
             value = XMLParse.get_text_node_value(node)
             if not Constant.Config.export_only_zh:
                 dic[key] = value

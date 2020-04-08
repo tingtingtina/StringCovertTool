@@ -87,7 +87,7 @@ class ExportUtils:
             # 最后写 标准文件的 key（0）-values（1）
             writeDict(ws, base_dict, row, 0, module_name, True)
 
-            row = len(base_dict)
+            row += len(base_dict)
             Log.info("row = %s" % row)
 
         workbook.save(xlsPath)
