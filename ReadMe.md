@@ -72,8 +72,8 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
 - 目录方式
     - 要导出的 excel 路径，同上
     - 要导出的 xml 目录路径，如 ..\android, android 目录下有如下文件格式
-   
-   
+
+
     ```
     ├── andorid
     │   ├── values-zh
@@ -85,18 +85,18 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
     │   ├── values
     ```
     注：目录方式会默认以 values-zh 作为基准（比如 key 的顺序），可以通过修改 Config 属性 ```export_base_dir``` 和 ```export_base_title``` 来定制
-   
+
    ### 导出效果
-   
-   | Android module | Android keyName | zh   | en   | ko   |
-   | -------------- | --------------- | ---- | ---- | ---- |
-   | strings_me     | me_1            |      |      |      |
-   | strings_me     | me_2            |      |      |      |
-   | strings_me     | me_3            |      |      |      |
-   | strings_moment | moment_1        |      |      |      |
-   | strings_moment | moment_2        |      |      |      |
-   | strings_moment | moment_3        |      |      |      |
-   | strings_device | device_1        |      |      |      |
+
+| Android module | Android keyName | zh   | en   | ko   |
+| -------------- | --------------- | ---- | ---- | ---- |
+| strings_me     | me_1            |      |      |      |
+| strings_me     | me_2            |      |      |      |
+| strings_me     | me_3            |      |      |      |
+| strings_moment | moment_1        |      |      |      |
+| strings_moment | moment_2        |      |      |      |
+| strings_moment | moment_3        |      |      |      |
+| strings_device | device_1        |      |      |      |
 ### 注意点：
 
 - xml 目录指的都是包含着 values-zh 等目录的文件夹
@@ -115,14 +115,30 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
   </string-array>
   ```
 - 关于导入列配置 ```import_start_col```，项目使用表格 是从第 2 列开始做导入（从0开始），也就是 en 和 de 需导入，在实际使用中可根据需求处理
-- ```export_only_zh``` 需求来源于，我们在项目中会追加文案（默认中文），在没有多语言翻译的时候，其他的 strings 都会写成中文，为了便于仅导出为翻译的部分，添加此字段辅助。
+- ```export_only_zh``` 
+    
+    > 需求来源于，我们在项目中会追加文案（默认中文），在没有多语言翻译的时候，其他的 strings 都会写成中文，为了便于仅导出为翻译的部分，添加此字段辅助。
     - 常用使用方法， 将导出基准设为非中文的语言，如 下面将基准设为英文，并将近导出中文支付设为 true，那么导出的就是没有翻译（仅中文）的内容
     - 为什么不能将基准设为中文？ 如果以中文为基准，所有的字符串都会导出来啦
     ```python
     export_base_dir = "values"  # 导出基准文件夹
     export_base_title = "en"  # 导出基准 title
     export_only_zh = True  # 是否仅导出中文字符
-    ```
+  ```
+  
+- ```export_ignore_translatable```
+  
+    > 在国际化当中会有一些不需要被国际化的文案，比如 App 中的语言设置，对语言描述是不需要被国际化的。比如下面文案，不论在中文环境下还是英文或者其他语种，都不需要对其进行翻译，所以可以通过添加属性 translatable 为 false 来处理。
+    >
+    > ```xml
+    > <string name="english" translatable="false">English</string>
+    > ```
+
+```export_ignore_translatable``` 为 ```True```  时，会忽略 ```translatable``` 为 ```false``` 的文案，不做导出。
+
+比较常用的是，配合仅导出中文属性一同使用，可以避免这些不用翻译的内容被再次导出。
+
+
 ## 可视化使用
 
 - 上面直接使用参数的方式还是容易出错，建议使用下面的方式，更清晰易懂

@@ -154,13 +154,22 @@ class XMLParse:
         nodes = xml_doc.getElementsByTagName('string')
         dic = collections.OrderedDict()
         for index, node in enumerate(nodes):
-            key = node.getAttribute("name")
             if node is None or node.firstChild is None:
                 continue
+
+            if Constant.Config.export_apply_translatable:
+                # ignore translatable
+                translatable = node.getAttribute('translatable')
+                if translatable is not None and translatable == "false":
+                    continue
+
+            key = node.getAttribute("name")
+
             value = XMLParse.get_text_node_value(node)
             if not Constant.Config.export_only_zh:
                 dic[key] = value
             else:
+                # 仅导出中文，是中文，则保存
                 if is_chinese(value):
                     dic[key] = value
 
