@@ -155,3 +155,36 @@ python xls2xml.py -i "C:\Users\Administrator\Desktop\App Native - 1126.xlsx" -l 
 
 ## 测试
 - ImportTestUnit.py 和 ExportTestUnit.py 用户导入导出测试
+
+## 常用使用场景示例
+### 导出英文没有翻译的内容
+
+可以直接在 ExportTestUnit.py 写测试代码运行即可
+```python
+ def main():
+    exportUtils = ExportUtils()
+    Config.export_only_zh = True
+    Config.export_base_dir = "values"
+    Config.export_base_title = "en"
+
+    xls_dir = "C:\\Users\\Administrator\\Desktop\\test"   #目标xls目录
+    input_dir = "C:\\Users\\Administrator\\Desktop\\test" #目标文件夹，里面放英文的xml即可
+    exportUtils.xml2xls(xls_dir, input_dir)
+```
+
+### 导出除了中英之外没有翻译的语言
+- 比如导出韩语中需要翻译的内容。如果只需要对比中文，导出韩文需要翻译的用上面的方法即可
+- 如果要导出中英韩的话，使用目录方式。但需要修改下代码处理，最好先和中文的内容做下匹配，使得中英韩的key组数一致，避免内容缺失
+- 思想，保留中文，和英文文件夹下的内容
+- 实现：在ParseUtils中的 is_chinese(value) 的判断部分增加一个判断 file_path.find("values-en") >= 0 表示中文和英文文件夹下的内容都导出
+
+```python
+if is_chinese(value) or file_path.find("values-en") >= 0:
+    #doSomething
+```
+- 整理：最后可以用 excel 中的筛选功能，删除韩语中空白行数
+- 总结步骤
+    1. 修改代码
+    2. 使用目录导出（通用）
+    3. Excel整理
+
