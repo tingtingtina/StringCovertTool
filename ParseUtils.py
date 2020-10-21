@@ -5,8 +5,6 @@ import sys
 import xml.dom.minidom
 import os.path
 
-import xlwt
-
 import Constant
 from LogUtils import Log
 import collections
