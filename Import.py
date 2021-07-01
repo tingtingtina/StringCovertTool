@@ -177,3 +177,13 @@ def addParser():
     (options, args) = parser.parse_args()
     Log.info("options: %s, args: %s" % (options, args))
     return options
+
+
+def main():
+    importUtils = ImportUtils()
+    options = addParser()
+    importUtils.xls2xml_options(options)
+
+
+if __name__ == "__main__":
+    main()
